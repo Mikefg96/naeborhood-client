@@ -5,7 +5,7 @@
 			<h2 class="fw3">Nunca había sido más fácil.</h2>
 		</div>
 		<div>
-			<d-card style="max-width: 300px" class="mb4" v-if="isRegistering">
+			<d-card style="max-width: 300px" class="mb4 z-2" v-if="isRegistering">
 				<d-card-header>¡Bienvenido! Regístrate</d-card-header>
 				<d-card-body class="tc">
 					<!-- ¿Formas en Vue.js? -->
@@ -18,7 +18,7 @@
 					<p @click="switchLogin()" class="mb0 footer-caption">¿Ya tienes cuenta?</p>
 				</d-card-footer>
 			</d-card>
-			<d-card style="max-width: 300px" class="mb4" v-else>
+			<d-card style="max-width: 300px" class="mb4 z-2" v-else>
 				<d-card-header>¡Bienvenido! Inicia sesión</d-card-header>
 				<d-card-body class="tc">
 					<d-form>
@@ -31,7 +31,7 @@
 					<p @click="switchLogin()" class="mb0 footer-caption">¿No tienes cuenta?</p>
 				</d-card-footer>
 			</d-card>
-			<img src="../assets/img/best_place.svg" alt="" class="mw6">
+			<img src="../assets/img/best_place.svg" alt="" class="mw6 absolute bottom-2">
 		</div>
 	</div>
 </template>

@@ -6,12 +6,14 @@ import store from "@/store/store";
 import mutations from "@/store/mutations";
 
 import user from "@/store/modules/user.store";
+import houses from "@/store/modules/houses.store"
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
 	modules: {
-		user: user
+		user: user,
+		houses: houses
 	},
 	store: store,
 	mutations: mutations,
