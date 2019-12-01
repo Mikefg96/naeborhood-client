@@ -14,28 +14,23 @@
 			</d-card>
         </div>
         <div class="resident-read">
-            <d-card class="mb2 z-2">
+            <d-card class="z-2">
                 <d-card-body>
                     <table class="table tc">
                         <thead class="bg-light">
                             <tr>
                                 <th scope="col" class="border-0">#</th>
-                                <th scope="col" class="border-0">Calle</th>
-                                <th scope="col" class="border-0">Número</th>
-                                <th scope="col" class="border-0">Estado</th>
+                                <th scope="col" class="border-0">Nombre</th>
+                                <th scope="col" class="border-0">Celular</th>
+                                <th scope="col" class="border-0">Dirección</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr :key="house._id" v-for="(house, index) in availableHouses">
+                            <tr :key="resident._id" v-for="(resident, index) in availableResidents">
                                 <td>{{ index + 1 }}</td>
-                                <td>{{ house.street }}</td>
-                                <td>{{ house.number }}</td>
-                                <td v-if="!house.resident">
-                                    <d-badge theme="secondary">Deshabitada</d-badge>
-                                </td>
-                                <td v-else>
-                                    <d-badge theme="success">Habitada</d-badge>
-                                </td>
+                                <td>{{ resident.name }}  {{ resident.lastName }}</td>
+                                <td>{{ resident.cel }}</td>
+                                <td>{{ resident.house_id.street }} #{{ resident.house_id.number }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -47,7 +42,8 @@
 </template>
 <script>
 	import { mapGetters } from "vuex";
-	const housesModule = "houses";
+    const housesModule = "houses";
+    const residentsModule = "residents";
 
     export default {
 		data() {
@@ -60,8 +56,8 @@
             }
 		},
 		methods: {
-			getHouses() {
-				this.$store.dispatch(`${housesModule}/getHouses`);
+			getFreeHouses() {
+				this.$store.dispatch(`${housesModule}/getFreeHouses`);
             },
             registerResident() {
 
@@ -72,14 +68,29 @@
                     house_id: this.selected
                 };
 
-                console.log(resident);
+                this.$store.dispatch(`${residentsModule}/createResident`, resident).then(() => {
+
+					this.$toasted.show("¡Residente registrado exitosamente!", {
+						type: "success",
+						action: {
+							text: "Okay",
+							onClick: (e, toastObject) => {
+								toastObject.goAway(0);
+							}
+						}
+					});
+				});
+            },
+            getResidents() {
+                this.$store.dispatch(`${residentsModule}/getResidents`);
             }
 		},
 		computed: {
-            ...mapGetters(housesModule, ["availableHouses"]),
+            ...mapGetters(housesModule, ["freeHouses"]),
+            ...mapGetters(residentsModule, ["availableResidents"]),
             options: function() {
                 let optionsFormat = [{ value: null, text: 'Asignar una casa', disabled: true }]
-                this.availableHouses.forEach(house => {
+                this.freeHouses.forEach(house => {
                     let formattedHouse = {
                         value: house._id,
                         text: house.street + ' #' + house.number
@@ -92,7 +103,8 @@
             }
 		},
 		mounted() {
-            this.getHouses()
+            this.getFreeHouses();
+            this.getResidents();
 		}
     };
 </script>

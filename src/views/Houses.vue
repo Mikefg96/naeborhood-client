@@ -37,7 +37,7 @@
 									<td>{{ index + 1 }}</td>
 									<td>{{ house.street }}</td>
 									<td>{{ house.number }}</td>
-									<td v-if="!house.resident">
+									<td v-if="house.hasResident == false">
 										<d-badge theme="secondary">Deshabitada</d-badge>
 									</td>
 									<td v-else>

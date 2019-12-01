@@ -1,16 +1,21 @@
 import housesApi from "@/api/houses.api";
 
 const state = {
-    houses: []
+    houses: [],
+    freeHouses: []
 };
 
 const getters = {
-    availableHouses: state => state.houses
+    availableHouses: state => state.houses,
+    freeHouses: state => state.freeHouses
 };
 
 const mutations = {
     GET_HOUSES(state, houses) {
         state.houses = houses;
+    },
+    GET_FREE_HOUSES(state, freeHouses) {
+        state.freeHouses = freeHouses;
     },
     ADD_HOUSE(state, house) {
         state.houses.push(house);
@@ -32,6 +37,16 @@ const actions = {
         housesApi.getHouses(
             result => {
                 commit("GET_HOUSES", result.data.obj);
+            },
+            error => {
+                return error;
+            }
+        );
+    },
+    getFreeHouses({ commit }) {
+        housesApi.getFreeHouses(
+            result => {
+                commit("GET_FREE_HOUSES", result.data.obj);
             },
             error => {
                 return error;

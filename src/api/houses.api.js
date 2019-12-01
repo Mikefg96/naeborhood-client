@@ -13,5 +13,11 @@ export default {
           .get(`${config.host}/houses`)
           .then(onSuccess)
           .catch(onError);
-    }
+    },
+    getFreeHouses(onSuccess, onError) {
+      return axios
+        .get(`${config.host}/houses/free`)
+        .then(onSuccess)
+        .catch(onError);
+  }
 };
