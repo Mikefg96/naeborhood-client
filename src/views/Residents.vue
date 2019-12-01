@@ -56,8 +56,8 @@
             }
 		},
 		methods: {
-			getFreeHouses() {
-				this.$store.dispatch(`${housesModule}/getFreeHouses`);
+            getFreeHouses() {
+                this.$store.dispatch(`${housesModule}/getFreeHouses`);
             },
             registerResident() {
 

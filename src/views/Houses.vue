@@ -87,6 +87,9 @@
 				this.$store.dispatch(`${housesModule}/createHouse`, house).then(() => {
 
 					this.isRegistering = false;
+					this.street = null;
+					this.number = null;
+
 					this.$toasted.show("¡Casa registrada exitosamente!", {
 						type: "success",
 						action: {

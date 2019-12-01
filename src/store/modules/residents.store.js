@@ -5,7 +5,7 @@ const state = {
 };
 
 const getters = {
-    availableResidents: state => state.residents,
+    availableResidents: state => state.residents
 };
 
 const mutations = {

@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Houses from '../views/Houses.vue'
 import Residents from '../views/Residents.vue'
+import Visits from '../views/Visits.vue'
+import Payments from '../views/Payments.vue'
 
 import Toasted from 'vue-toasted'; 
 
@@ -29,6 +31,16 @@ const routes = [
 				path: '/dashboard/residentes',
 				name: 'residents',
 				component: Residents
+			},
+			{
+				path: '/dashboard/visitas',
+				name: 'visits',
+				component: Visits
+			},
+			{
+				path: '/dashboard/pagos',
+				name: 'payments',
+				component: Payments
 			}
 		]
 	}
