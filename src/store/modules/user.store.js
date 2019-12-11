@@ -23,6 +23,20 @@ const actions = {
                 return error;
             }
         );
+    },
+    loginUser({ commit }, data) {
+        return new Promise((resolve, reject) => {
+            userApi.loginUser(data,
+                result => {
+                    // TODO: '¿Cómo se hace cuando no quieres commitear nada?'
+                    commit("", result.data);                  
+                    resolve(result);
+                },
+                error => {
+                    reject(error);
+                }
+            );
+        })
     }
 };
 

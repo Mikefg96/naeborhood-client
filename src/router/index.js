@@ -6,8 +6,9 @@ import Houses from '../views/Houses.vue'
 import Residents from '../views/Residents.vue'
 import Visits from '../views/Visits.vue'
 import Payments from '../views/Payments.vue'
+import Activities from '../views/Activities.vue'
 
-import Toasted from 'vue-toasted'; 
+import Toasted from 'vue-toasted'
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const routes = [
 				path: '/dashboard/pagos',
 				name: 'payments',
 				component: Payments
+			},
+			{
+				path: '/dashboard/actividades',
+				name: 'activities',
+				component: Activities
 			}
 		]
 	}

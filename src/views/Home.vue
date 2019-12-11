@@ -20,12 +20,10 @@
 			</d-card>
 			<d-card style="max-width: 300px" class="mb4 z-2" v-else>
 				<d-card-header>¡Bienvenido! Inicia sesión</d-card-header>
-				<d-card-body class="tc">
-					<d-form>
-						<d-input class="mb2" placeholder="Correo" />
-						<d-input class="mb2" type="password" placeholder="Contraseña" />
-						<d-button theme="primary">Iniciar sesión</d-button>
-					</d-form>
+				<d-card-body class="tc">	
+					<d-input class="mb2" placeholder="Correo" v-model="loginEmail"/>
+					<d-input class="mb2" type="password" placeholder="Contraseña" v-model="loginPassword"/>
+					<d-button theme="primary" @click="loginUser()">Iniciar sesión</d-button>
 				</d-card-body>
 				<d-card-footer>
 					<p @click="switchLogin()" class="mb0 footer-caption">¿No tienes cuenta?</p>
@@ -46,7 +44,9 @@
 				isRegistering: true,
 				email: null,
 				password: null,
-				passwordConfirmation: null
+				passwordConfirmation: null,
+				loginEmail: null,
+				loginPassword: null
 			}
 		},
 		methods: {
@@ -64,8 +64,10 @@
 					};
 
 					this.$store.dispatch(`${userModule}/createUser`, user).then(() => {
-
 						this.isRegistering = false;
+						this.email = null;
+						this.password = null;
+						
 						this.$toasted.show("¡Registro exitoso! Ahora, puedes iniciar sesión", {
 							type: "success",
 							action: {
@@ -87,6 +89,38 @@
 						}
 					});
 				}
+			},
+			loginUser() {
+								
+				const user = {
+					email: this.loginEmail,
+					password: this.loginPassword
+				};
+
+				this.$store.dispatch(`${userModule}/loginUser`, user).then((response) => {
+					if(response.data.err == true) {
+						this.$toasted.show("¡Por favor, revisa tus credenciales!", {
+							type: "error",
+							action: {
+								text: "Okay",
+								onClick: (e, toastObject) => {
+									toastObject.goAway(0);
+								}
+							}
+						});
+					} else {
+						this.$router.push({ path: '/dashboard' });
+						this.$toasted.show("¡Sesión iniciada exitosamente!", {
+							type: "success",
+							action: {
+								text: "Okay",
+								onClick: (e, toastObject) => {
+									toastObject.goAway(0);
+								}
+							}
+						});	
+					}
+				});
 			}
 		}
 	}

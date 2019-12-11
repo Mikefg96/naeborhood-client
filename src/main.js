@@ -16,6 +16,11 @@ import "tachyons";
 import Toasted from 'vue-toasted'; 
 Vue.use(Toasted)
 
+// https://github.com/chronotruck/vue-ctk-date-time-picker
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
+Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
+
 Vue.config.productionTip = false
 
 new Vue({

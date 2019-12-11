@@ -21,13 +21,7 @@
 
 <script>
     export default {
-        name: "dashboard",
-        methods: {
-            pushHouses() {
-                console.log('suh');
-                this.$router.push({ path: '/dashboard/houses' })
-            }
-        }
+        name: "dashboard"
     };
 </script>
 

@@ -2,15 +2,15 @@ import config from "@/../config";
 import axios from "axios";
 
 export default {
-    createUser(params = {}, onSuccess, onError) {
+    createActivity(params = {}, onSuccess, onError) {
         return axios
-          .post(`${config.host}/user/create`, params)
+          .post(`${config.host}/activities/create`, params)
           .then(onSuccess)
           .catch(onError);
     },
-    loginUser(params = {}, onSuccess, onError) {
+    getActivities(onSuccess, onError) {
         return axios
-          .post(`${config.host}/user/login`, params)
+          .get(`${config.host}/activities`)
           .then(onSuccess)
           .catch(onError);
     }
