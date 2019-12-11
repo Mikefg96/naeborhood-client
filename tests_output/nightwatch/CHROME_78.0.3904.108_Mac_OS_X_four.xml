@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="1">
+
+  <testsuite name="nightwatch.four"
+    errors="1" failures="0" hostname="" id="" package="nightwatch" skipped="0"
+    tests="1" time="9.833" timestamp="">
+  
+    <testcase name="View and create payments" classname="nightwatch.four" time="9.833" assertions="1">
+
+    
+    </testcase>
+  
+
+  
+    <system-err>
+      [0;31m  NoSuchElementError: An error occurred while running .setValue() command on &lt;radioSelected&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;3984d0af5aa414ddf905b4eec5810b23&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at process._tickCallback (internal/process/next_tick.js:68:7)[0m
+    </system-err>
+  
+
+  
+  </testsuite>
+</testsuites>

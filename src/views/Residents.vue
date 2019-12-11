@@ -5,11 +5,11 @@
 				<d-card-header>Registro de residentes</d-card-header>
 				<d-card-body class="tc">
 					<!-- ¿Formas en Vue.js? -->
-					<d-input class="mb2" placeholder="Nombre" v-model="name"/>
-					<d-input class="mb2" placeholder="Apellido" v-model="lastName"/>
-                    <d-input type="number" class="mb2" placeholder="Celular" v-model="cel"/>
-                    <d-form-select class="mb2" :options="options" v-model="selected"/>
-					<d-button theme="success" class="mr1" @click="registerResident()">Registrar</d-button>
+					<d-input class="mb2" placeholder="Nombre" v-model="name" name="residentName"/>
+					<d-input class="mb2" placeholder="Apellido" v-model="lastName" name="residentLastName"/>
+                    <d-input type="number" class="mb2" placeholder="Celular" v-model="cel" name="residentCel"/>
+                    <d-form-select class="mb2" :options="options" v-model="selected" id="selectid"/>
+					<d-button theme="success" class="mr1" @click="registerResident()" id="registerRes">Registrar</d-button>
 				</d-card-body>
 			</d-card>
         </div>
@@ -25,7 +25,7 @@
                                 <th scope="col" class="border-0">Dirección</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="showResidents">
                             <tr :key="resident._id" v-for="(resident, index) in availableResidents">
                                 <td>{{ index + 1 }}</td>
                                 <td>{{ resident.name }}  {{ resident.lastName }}</td>

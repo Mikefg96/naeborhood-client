@@ -3,8 +3,8 @@
 		<div class="tc" v-if="!isRegistering && !isReading">
 			<img src="../assets/img/visits.svg" alt="" class="mw6 mb3">
 			<div>
-				<d-button theme="success" class="mr1" @click="switchRegisteringStatus()">Registrar visita</d-button>
-				<d-button outline theme="success" class="ml1" @click="switchReadingStatus()">Ver visitas</d-button>
+				<d-button theme="success" class="mr1" @click="switchRegisteringStatus()" id="addVisit">Registrar visita</d-button>
+				<d-button outline theme="success" class="ml1" @click="switchReadingStatus()" id="seeVisits">Ver visitas</d-button>
 			</div>
 		</div>
 		<div v-else-if="isRegistering && !isReading">
@@ -12,11 +12,11 @@
 				<d-card-header>Registro de visitas</d-card-header>
 				<d-card-body class="tc">
 					<!-- ¿Formas en Vue.js? -->
-					<d-input class="mb2" placeholder="Nombre" v-model="name"/>
-					<d-input class="mb2" placeholder="Apellido" v-model="lastName"/>
-					<d-input class="mb2" placeholder="Placas" v-model="licencePlate"/>
-					<d-form-select class="mb2" :options="options" v-model="selected"/>
-					<d-button theme="success" class="mr1" @click="registerVisit()">Registrar</d-button>
+					<d-input class="mb2" placeholder="Nombre" v-model="name" name="visitName"/>
+					<d-input class="mb2" placeholder="Apellido" v-model="lastName" name="visitLastName"/>
+					<d-input class="mb2" placeholder="Placas" v-model="licencePlate" name="visitPlate"/>
+					<d-form-select class="mb2" :options="options" v-model="selected" id="showResidents"/>
+					<d-button theme="success" class="mr1" @click="registerVisit()" id="registerBtn">Registrar</d-button>
 					<d-button outline theme="danger" class="ml1" @click="returnToMain()">Regresar</d-button>
 				</d-card-body>
 			</d-card>
@@ -45,7 +45,7 @@
 						</table>
 					</d-card-body>
 				</d-card>
-				<d-button outline theme="danger" class="fr" @click="returnToMain()">Regresar</d-button>
+				<d-button outline theme="danger" class="fr" @click="returnToMain()" id="toVisits">Regresar</d-button>
 			</div>
 		</div>
 	</div>

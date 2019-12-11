@@ -3,11 +3,11 @@
         <div class="payment-register">
             <d-card style="max-width: 300px">
                 <d-card-header>Registro de pagos</d-card-header>
-                <d-card-body class="tc">
-                    <d-form-radio inline value="Caseta" v-model="radioSelected">Caseta</d-form-radio>
-                    <d-form-radio inline value="Mensual" v-model="radioSelected">Mensual</d-form-radio>
-                    <d-form-select class="mb2" :options="options" v-model="selected"/>
-                    <d-input type="number" class="mb2" placeholder="$$$" v-model="quantity"/>
+                <d-card-body class="tc" id="payTypes">
+                    <d-form-radio inline value="Caseta" v-model="radioSelected" id="ps">Caseta</d-form-radio>
+                    <d-form-radio inline value="Mensual" v-model="radioSelected" id="pm">Mensual</d-form-radio>
+                    <d-form-select class="mb2" :options="options" v-model="selected" id="showResidents"/>
+                    <d-input type="number" class="mb2" placeholder="$$$" v-model="quantity" name="payQty"/>
                     <d-button theme="success" @click="registerPayment()">Registrar</d-button>
                 </d-card-body>
             </d-card>

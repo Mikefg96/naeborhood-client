@@ -7,10 +7,10 @@
             </d-navbar-brand>
             <d-collapse is-nav id="nav-collapse">
                 <d-navbar-nav>
-                    <d-nav-item to="/dashboard/casas" class="pointer">Casas</d-nav-item>
-                    <d-nav-item to="/dashboard/residentes" class="pointer">Residentes</d-nav-item>
-                    <d-nav-item to="/dashboard/visitas" class="pointer">Visitas</d-nav-item>
-                    <d-nav-item to="/dashboard/pagos" class="pointer">Pagos</d-nav-item>
+                    <d-nav-item to="/dashboard/casas" class="pointer" id="housesBtn">Casas</d-nav-item>
+                    <d-nav-item to="/dashboard/residentes" class="pointer" id="residentsBtn">Residentes</d-nav-item>
+                    <d-nav-item to="/dashboard/visitas" class="pointer" id="visitsBtn">Visitas</d-nav-item>
+                    <d-nav-item to="/dashboard/pagos" class="pointer" id="paymentsBtn">Pagos</d-nav-item>
                     <d-nav-item to="/dashboard/actividades" class="pointer">Actividades</d-nav-item>
                 </d-navbar-nav>
             </d-collapse>
