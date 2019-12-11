@@ -9,6 +9,5 @@ module.exports = {
             .setValue('input[name="payQty"]', 10000)
             .pause(2000)
             .end();
-
     }
 };
