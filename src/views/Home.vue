@@ -9,21 +9,21 @@
 				<d-card-header>¡Bienvenido! Regístrate</d-card-header>
 				<d-card-body class="tc">
 					<!-- ¿Formas en Vue.js? -->
-					<d-input class="mb2" placeholder="Correo" v-model="email"/>
-					<d-input class="mb2" type="password" placeholder="Contraseña" v-model="password"/>
-					<d-input class="mb2" type="password" placeholder="Confirmar contraseña" v-model="passwordConfirmation"/>
-					<d-button theme="primary" @click="registerUser()">Registrar</d-button>
+					<d-input class="mb2" placeholder="Correo" v-model="email" name="userEmail"/>
+					<d-input class="mb2" type="password" placeholder="Contraseña" v-model="password" name="userPass"/>
+					<d-input class="mb2" type="password" placeholder="Confirmar contraseña" v-model="passwordConfirmation" name="userPassC"/>
+					<d-button theme="primary" @click="registerUser()" id="registerUser">Registrar</d-button>
 				</d-card-body>
 				<d-card-footer>
 					<p @click="switchLogin()" class="mb0 footer-caption">¿Ya tienes cuenta?</p>
 				</d-card-footer>
 			</d-card>
-			<d-card style="max-width: 300px" class="mb4 z-2" v-else>
+			<d-card style="max-width: 300px" class="mb4 z-2" v-else id="loginForm">
 				<d-card-header>¡Bienvenido! Inicia sesión</d-card-header>
 				<d-card-body class="tc">	
-					<d-input class="mb2" placeholder="Correo" v-model="loginEmail"/>
-					<d-input class="mb2" type="password" placeholder="Contraseña" v-model="loginPassword"/>
-					<d-button theme="primary" @click="loginUser()">Iniciar sesión</d-button>
+					<d-input class="mb2" placeholder="Correo" v-model="loginEmail" name="loginEmail"/>
+					<d-input class="mb2" type="password" placeholder="Contraseña" v-model="loginPassword" name="loginPass"/>
+					<d-button theme="primary" @click="loginUser()" id="loginBtn">Iniciar sesión</d-button>
 				</d-card-body>
 				<d-card-footer>
 					<p @click="switchLogin()" class="mb0 footer-caption">¿No tienes cuenta?</p>
