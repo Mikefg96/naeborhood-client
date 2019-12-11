@@ -3,8 +3,8 @@
 		<div class="tc" v-if="!isRegistering && !isReading">
 			<img src="../assets/img/new_house.svg" alt="" class="mw7 mb3">
 			<div>
-				<d-button theme="success" class="mr1" @click="switchRegisteringStatus()">Registrar casa</d-button>
-				<d-button outline theme="success" class="ml1" @click="switchReadingStatus()">Ver casas</d-button>
+				<d-button theme="success" class="mr1" @click="switchRegisteringStatus()" id="registerHouse">Registrar casa</d-button>
+				<d-button outline theme="success" class="ml1" @click="switchReadingStatus()" id="showHouses">Ver casas</d-button>
 			</div>
 		</div>
 		<div v-else-if="isRegistering && !isReading">
@@ -12,16 +12,16 @@
 				<d-card-header>Registro de casa</d-card-header>
 				<d-card-body class="tc">
 					<!-- ¿Formas en Vue.js? -->
-					<d-input class="mb2" placeholder="Calle" v-model="street"/>
-					<d-input type="number" class="mb2" placeholder="Número" v-model="number"/>
-					<d-button theme="success" class="mr1" @click="registerHouse()">Registrar</d-button>
+					<d-input class="mb2" placeholder="Calle" v-model="street" name="houseStreet"/>
+					<d-input type="number" class="mb2" placeholder="Número" v-model="number" name="houseNumber"/>
+					<d-button theme="success" class="mr1" @click="registerHouse()" id="registerBtn">Registrar</d-button>
 					<d-button outline theme="danger" class="ml1" @click="returnToMain()">Regresar</d-button>
 				</d-card-body>
 			</d-card>
 		</div>
 		<div v-else>
 			<div>
-				<d-card class="mb2">
+				<d-card class="mb2" id="allHouses">
 					<d-card-body>
 						<table class="table tc">
 							<thead class="bg-light">
@@ -48,7 +48,7 @@
 						</table>
 					</d-card-body>
 				</d-card>
-				<d-button outline theme="danger" class="fr" @click="returnToMain()">Regresar</d-button>
+				<d-button outline theme="danger" class="fr" @click="returnToMain()" id="toHouses">Regresar</d-button>
 			</div>
 		</div>
 	</div>
